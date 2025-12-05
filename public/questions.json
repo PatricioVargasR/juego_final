@@ -100,5 +100,314 @@
         { "text": "Competir con otros", "points": 1 }
       ]
     }
+  ],
+
+  "Problemas afectivos": [
+    {
+      "question": "¿Qué es más importante en una relación?",
+      "answers": [
+        { "text": "Comunicación", "points": 5 },
+        { "text": "Dinero", "points": 1 },
+        { "text": "Apariencia física", "points": 1 },
+        { "text": "Confianza", "points": 5 },
+        { "text": "Control", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo resolver conflictos en pareja?",
+      "answers": [
+        { "text": "Evitar el tema", "points": 1 },
+        { "text": "Dialogar con respeto", "points": 5 },
+        { "text": "Gritar", "points": 1 },
+        { "text": "Buscar mediación", "points": 4 },
+        { "text": "Dar el tratamiento silencioso", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué indica una relación tóxica?",
+      "answers": [
+        { "text": "Respeto mutuo", "points": 1 },
+        { "text": "Control excesivo", "points": 5 },
+        { "text": "Comunicación abierta", "points": 1 },
+        { "text": "Celos constantes", "points": 4 },
+        { "text": "Apoyo emocional", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cuándo es momento de terminar una relación?",
+      "answers": [
+        { "text": "Al primer problema", "points": 1 },
+        { "text": "Cuando hay abuso", "points": 5 },
+        { "text": "Nunca", "points": 1 },
+        { "text": "Cuando no hay respeto", "points": 4 },
+        { "text": "Por presión externa", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer después de una ruptura?",
+      "answers": [
+        { "text": "Buscar venganza", "points": 1 },
+        { "text": "Procesar las emociones", "points": 5 },
+        { "text": "Empezar otra relación inmediatamente", "points": 1 },
+        { "text": "Cuidar de ti mismo", "points": 4 },
+        { "text": "Negar el dolor", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué significa amor verdadero?",
+      "answers": [
+        { "text": "Sacrificarlo todo", "points": 1 },
+        { "text": "Respeto y apoyo mutuo", "points": 5 },
+        { "text": "Posesión", "points": 1 },
+        { "text": "Aceptación incondicional", "points": 4 },
+        { "text": "Dependencia emocional", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo mantener viva la chispa en una relación?",
+      "answers": [
+        { "text": "Rutina estricta", "points": 1 },
+        { "text": "Nuevas experiencias juntos", "points": 5 },
+        { "text": "Ignorar al otro", "points": 1 },
+        { "text": "Comunicación constante", "points": 4 },
+        { "text": "Crear celos", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué rol juegan los límites en una relación?",
+      "answers": [
+        { "text": "Son innecesarios", "points": 1 },
+        { "text": "Protegen el bienestar", "points": 5 },
+        { "text": "Crean distancia", "points": 1 },
+        { "text": "Muestran respeto", "points": 4 },
+        { "text": "Son señal de desconfianza", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo superar la infidelidad?",
+      "answers": [
+        { "text": "Fingir que no pasó", "points": 1 },
+        { "text": "Comunicación honesta", "points": 5 },
+        { "text": "Venganza", "points": 1 },
+        { "text": "Terapia de pareja", "points": 4 },
+        { "text": "Desconfianza permanente", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué es el apego emocional sano?",
+      "answers": [
+        { "text": "Dependencia total", "points": 1 },
+        { "text": "Independencia con conexión", "points": 5 },
+        { "text": "Evitar el compromiso", "points": 1 },
+        { "text": "Necesidad constante", "points": 1 },
+        { "text": "Equilibrio entre autonomía y cercanía", "points": 5 }
+      ]
+    }
+  ],
+
+  "Problemas personales": [
+    {
+      "question": "¿Cómo manejar el estrés laboral?",
+      "answers": [
+        { "text": "Trabajar más horas", "points": 1 },
+        { "text": "Establecer límites", "points": 5 },
+        { "text": "Ignorar el problema", "points": 1 },
+        { "text": "Tomar descansos", "points": 4 },
+        { "text": "Renunciar inmediatamente", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer ante problemas económicos?",
+      "answers": [
+        { "text": "Entrar en pánico", "points": 1 },
+        { "text": "Hacer un presupuesto", "points": 5 },
+        { "text": "Ignorar las deudas", "points": 1 },
+        { "text": "Buscar asesoría", "points": 4 },
+        { "text": "Gastar más", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo mejorar la gestión del tiempo?",
+      "answers": [
+        { "text": "Multitarea constante", "points": 1 },
+        { "text": "Priorizar tareas", "points": 5 },
+        { "text": "Procrastinar", "points": 1 },
+        { "text": "Usar una agenda", "points": 4 },
+        { "text": "Hacer todo al último momento", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer si te sientes estancado en la vida?",
+      "answers": [
+        { "text": "Aceptar la situación", "points": 1 },
+        { "text": "Establecer nuevas metas", "points": 5 },
+        { "text": "Culpar a otros", "points": 1 },
+        { "text": "Buscar nuevas experiencias", "points": 4 },
+        { "text": "No hacer nada", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo lidiar con la crítica?",
+      "answers": [
+        { "text": "Ponerse a la defensiva", "points": 1 },
+        { "text": "Escuchar objetivamente", "points": 5 },
+        { "text": "Ignorar todo feedback", "points": 1 },
+        { "text": "Buscar el aprendizaje", "points": 4 },
+        { "text": "Tomar todo personal", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer ante el fracaso?",
+      "answers": [
+        { "text": "Rendirse", "points": 1 },
+        { "text": "Aprender de la experiencia", "points": 5 },
+        { "text": "Culparse eternamente", "points": 1 },
+        { "text": "Intentar de nuevo", "points": 4 },
+        { "text": "Evitar riesgos futuros", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo construir confianza en uno mismo?",
+      "answers": [
+        { "text": "Compararse con otros", "points": 1 },
+        { "text": "Celebrar pequeños logros", "points": 5 },
+        { "text": "Esperar perfección", "points": 1 },
+        { "text": "Salir de la zona de confort", "points": 4 },
+        { "text": "Depender de aprobación externa", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer con relaciones familiares difíciles?",
+      "answers": [
+        { "text": "Cortar todo contacto", "points": 1 },
+        { "text": "Establecer límites saludables", "points": 5 },
+        { "text": "Aguantar todo", "points": 1 },
+        { "text": "Comunicar tus necesidades", "points": 4 },
+        { "text": "Evitar conflictos siempre", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cómo encontrar propósito en la vida?",
+      "answers": [
+        { "text": "Esperar a que aparezca", "points": 1 },
+        { "text": "Explorar tus pasiones", "points": 5 },
+        { "text": "Seguir a la multitud", "points": 1 },
+        { "text": "Reflexionar sobre tus valores", "points": 4 },
+        { "text": "Copiar a otros", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer ante la soledad?",
+      "answers": [
+        { "text": "Aislarse más", "points": 1 },
+        { "text": "Buscar conexiones significativas", "points": 5 },
+        { "text": "Distraerse constantemente", "points": 1 },
+        { "text": "Trabajar en ti mismo", "points": 4 },
+        { "text": "Forzar amistades", "points": 1 }
+      ]
+    }
+  ],
+
+  "Adicciones": [
+    {
+      "question": "¿Qué es el primer paso para superar una adicción?",
+      "answers": [
+        { "text": "Negación", "points": 1 },
+        { "text": "Reconocer el problema", "points": 5 },
+        { "text": "Ocultarlo", "points": 1 },
+        { "text": "Buscar ayuda profesional", "points": 4 },
+        { "text": "Intentar solo", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué apoyo es más efectivo en la recuperación?",
+      "answers": [
+        { "text": "Aislamiento", "points": 1 },
+        { "text": "Grupos de apoyo", "points": 5 },
+        { "text": "Negación familiar", "points": 1 },
+        { "text": "Terapia profesional", "points": 5 },
+        { "text": "Fuerza de voluntad sola", "points": 2 }
+      ]
+    },
+    {
+      "question": "¿Qué desencadena las recaídas?",
+      "answers": [
+        { "text": "Estrés", "points": 5 },
+        { "text": "Felicidad", "points": 1 },
+        { "text": "Ambientes de consumo", "points": 4 },
+        { "text": "Ejercicio", "points": 1 },
+        { "text": "Emociones intensas", "points": 4 }
+      ]
+    },
+    {
+      "question": "¿Cómo prevenir una recaída?",
+      "answers": [
+        { "text": "Evitar ayuda", "points": 1 },
+        { "text": "Identificar desencadenantes", "points": 5 },
+        { "text": "Mantener rutinas saludables", "points": 4 },
+        { "text": "Aislarse", "points": 1 },
+        { "text": "Tener un plan de crisis", "points": 5 }
+      ]
+    },
+    {
+      "question": "¿Qué papel juega la familia en la recuperación?",
+      "answers": [
+        { "text": "Ninguno", "points": 1 },
+        { "text": "Apoyo fundamental", "points": 5 },
+        { "text": "Codependencia", "points": 1 },
+        { "text": "Educarse sobre adicciones", "points": 4 },
+        { "text": "Facilitar el consumo", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué actividad ayuda en la recuperación?",
+      "answers": [
+        { "text": "Regresar a viejos hábitos", "points": 1 },
+        { "text": "Ejercicio físico", "points": 5 },
+        { "text": "Aislamiento", "points": 1 },
+        { "text": "Nuevos hobbies", "points": 4 },
+        { "text": "Evitar responsabilidades", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Cuánto tiempo dura la recuperación?",
+      "answers": [
+        { "text": "Una semana", "points": 1 },
+        { "text": "Es un proceso continuo", "points": 5 },
+        { "text": "Nunca termina la lucha", "points": 4 },
+        { "text": "Un mes", "points": 1 },
+        { "text": "Depende del compromiso", "points": 4 }
+      ]
+    },
+    {
+      "question": "¿Qué hacer si alguien cercano tiene una adicción?",
+      "answers": [
+        { "text": "Ignorarlo", "points": 1 },
+        { "text": "Ofrecer apoyo sin juzgar", "points": 5 },
+        { "text": "Facilitarle el consumo", "points": 1 },
+        { "text": "Buscar ayuda profesional", "points": 5 },
+        { "text": "Alejarse completamente", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué es la codependencia?",
+      "answers": [
+        { "text": "Ayudar sanamente", "points": 1 },
+        { "text": "Dependencia emocional poco sana", "points": 5 },
+        { "text": "Amor verdadero", "points": 1 },
+        { "text": "Facilitar comportamientos destructivos", "points": 4 },
+        { "text": "Apoyo incondicional", "points": 1 }
+      ]
+    },
+    {
+      "question": "¿Qué indicador muestra progreso en recuperación?",
+      "answers": [
+        { "text": "Consumo ocasional", "points": 1 },
+        { "text": "Mejores relaciones", "points": 4 },
+        { "text": "Abstinencia sostenida", "points": 5 },
+        { "text": "Control del consumo", "points": 1 },
+        { "text": "Bienestar emocional", "points": 4 }
+      ]
+    }
   ]
 }

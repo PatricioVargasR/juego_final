@@ -33,26 +33,44 @@ export function useGameEngine() {
 
   const initializeGame = async () => {
     try {
+      setIsLoading(true)
+      setError(null)
+      setGameFinished(false) // ← IMPORTANTE: Resetear estado de juego terminado
+
       // Load settings
       const savedSettings = localStorage.getItem("gameSettings")
       const settings: GameSettings = savedSettings
         ? JSON.parse(savedSettings)
         : { category: "Salud Mental", numQuestions: 10, soundEnabled: true }
 
-      // Check if there's a saved game state
+      console.log("🎮 Inicializando juego con configuración:", settings)
+
+      // Check if there's a saved game state for THIS CATEGORY
       const savedState = localStorage.getItem("gameState")
       if (savedState) {
         const state = JSON.parse(savedState)
-        setQuestions(state.questions)
-        setCurrentIndex(state.currentIndex)
-        setScore(state.score)
-        setIsLoading(false)
-        return
+        
+        // Verificar si el estado guardado es de la misma categoría
+        const savedCategory = state.category || ""
+        
+        if (savedCategory === settings.category) {
+          console.log("📦 Cargando estado guardado de la misma categoría")
+          setQuestions(state.questions)
+          setCurrentIndex(state.currentIndex)
+          setScore(state.score)
+          setIsLoading(false)
+          return
+        } else {
+          console.log("🔄 Categoría diferente, limpiando estado anterior")
+          localStorage.removeItem("gameState")
+        }
       }
 
       // Load questions from JSON
       const allQuestions = await loadQuestions()
       const categoryQuestions = allQuestions[settings.category] || []
+
+      console.log(`📚 Preguntas disponibles para ${settings.category}:`, categoryQuestions.length)
 
       if (categoryQuestions.length === 0) {
         setError("No hay preguntas disponibles para esta categoría")
@@ -70,11 +88,14 @@ export function useGameEngine() {
         answers: shuffleArray([...q.answers]),
       }))
 
+      console.log(`✅ ${questionsWithShuffledAnswers.length} preguntas cargadas y mezcladas`)
+
       setQuestions(questionsWithShuffledAnswers)
       setCurrentIndex(0)
       setScore(0)
       setIsLoading(false)
     } catch (err) {
+      console.error("❌ Error cargando preguntas:", err)
       setError("Error al cargar las preguntas")
       setIsLoading(false)
     }
@@ -88,17 +109,22 @@ export function useGameEngine() {
       const newIndex = currentIndex + 1
       setCurrentIndex(newIndex)
 
-      // Save game state
+      // Save game state WITH CATEGORY
+      const savedSettings = localStorage.getItem("gameSettings")
+      const settings = savedSettings ? JSON.parse(savedSettings) : {}
+      
       localStorage.setItem(
         "gameState",
         JSON.stringify({
           questions,
           currentIndex: newIndex,
           score: newScore,
+          category: settings.category, // ← Guardar categoría actual
         }),
       )
     } else {
       // Game finished
+      console.log("🏁 Juego terminado. Puntuación final:", newScore)
       localStorage.setItem("finalScore", String(newScore))
       localStorage.removeItem("gameState")
       setGameFinished(true)
