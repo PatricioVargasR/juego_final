@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react"
 import { Trophy, Brain, Heart, User, AlertCircle } from "lucide-react"
 
