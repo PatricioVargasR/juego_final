@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Trophy, Brain, Heart, User, AlertCircle } from "lucide-react"
 
-const CATEGORY_ORDER = [
+const ALL_CATEGORIES = [
   "Salud Mental",
   "Problemas afectivos",
   "Problemas personales",
@@ -13,6 +13,8 @@ const CATEGORY_ORDER = [
 export default function ResultPage() {
   const [score, setScore] = useState(0)
   const [category, setCategory] = useState("")
+  const [nextCategory, setNextCategory] = useState("")
+  const [allFinished, setAllFinished] = useState(false)
 
   useEffect(() => {
     const finalScore = localStorage.getItem("finalScore")
@@ -23,6 +25,38 @@ export default function ResultPage() {
     if (savedSettings) {
       const settings = JSON.parse(savedSettings)
       setCategory(settings.category || "Salud Mental")
+    }
+
+    // Obtener categorías completadas
+    const completedStr = localStorage.getItem("completedCategories")
+    const completedCategories = completedStr ? JSON.parse(completedStr) : []
+    
+    // Agregar la categoría actual a completadas
+    if (savedSettings) {
+      const settings = JSON.parse(savedSettings)
+      const currentCategory = settings.category
+      
+      if (!completedCategories.includes(currentCategory)) {
+        completedCategories.push(currentCategory)
+        localStorage.setItem("completedCategories", JSON.stringify(completedCategories))
+      }
+    }
+
+    console.log("✅ Categorías completadas:", completedCategories)
+
+    // Verificar si ya se completaron todas
+    if (completedCategories.length >= ALL_CATEGORIES.length) {
+      console.log("🎉 ¡Todas las categorías completadas!")
+      setAllFinished(true)
+    } else {
+      // Obtener categorías restantes
+      const remaining = ALL_CATEGORIES.filter(cat => !completedCategories.includes(cat))
+      console.log("📋 Categorías restantes:", remaining)
+      
+      // Elegir una aleatoria de las restantes
+      const randomNext = remaining[Math.floor(Math.random() * remaining.length)]
+      setNextCategory(randomNext)
+      console.log("🎲 Siguiente categoría:", randomNext)
     }
   }, [])
 
@@ -91,32 +125,50 @@ export default function ResultPage() {
   }
 
   /* ---------------------------------------------------- */
-  /* BOTÓN - FLUJO AUTOMÁTICO DE CATEGORÍAS */
+  /* BOTÓN - FLUJO CON CATEGORÍAS ALEATORIAS */
   /* ---------------------------------------------------- */
   const handlePlayAgain = () => {
-    const index = CATEGORY_ORDER.indexOf(category)
-    const nextIndex =
-      index === -1 || index + 1 >= CATEGORY_ORDER.length ? 0 : index + 1
+    if (allFinished) {
+      // Si terminaron todas, reiniciar y volver al inicio
+      handleFinishAll()
+      return
+    }
 
-    const nextCategory = CATEGORY_ORDER[nextIndex]
-
-    // Actualizar configuración con la nueva categoría
-    localStorage.setItem(
-      "gameSettings",
-      JSON.stringify({ category: nextCategory })
-    )
-
-    // Limpiar el score final
+    // Limpiar estados anteriores
+    localStorage.removeItem("gameState")
     localStorage.removeItem("finalScore")
 
-    // IMPORTANTE: Redirigir primero a /config para que se resetee el estado
-    // /config debe cargar las nuevas preguntas y luego redirigir a /game
-    window.location.href = "/config"
+    // Actualizar configuración con la nueva categoría ALEATORIA
+    const currentSettings = JSON.parse(localStorage.getItem("gameSettings") || "{}")
+    localStorage.setItem(
+      "gameSettings",
+      JSON.stringify({ 
+        ...currentSettings,
+        category: nextCategory 
+      })
+    )
+
+    console.log("🎮 Iniciando categoría:", nextCategory)
+
+    // Redirigir directamente a /game
+    window.location.href = "/game"
+  }
+
+  const handleFinishAll = () => {
+    // Limpiar TODO
+    localStorage.removeItem("gameSettings")
+    localStorage.removeItem("finalScore")
+    localStorage.removeItem("gameState")
+    localStorage.removeItem("completedCategories")
+    
+    console.log("🏁 Juego completado - Regresando al inicio")
+    window.location.href = "/"
   }
 
   const handleGoHome = () => {
     localStorage.removeItem("gameSettings")
     localStorage.removeItem("finalScore")
+    localStorage.removeItem("completedCategories")
     window.location.href = "/"
   }
 
@@ -148,21 +200,50 @@ export default function ResultPage() {
           </div>
         </div>
 
-        <div className="flex gap-4">
-          <button
-            onClick={handlePlayAgain}
-            className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg py-4 rounded-2xl hover:scale-105 transition-transform"
-          >
-            Siguiente categoría 🔁
-          </button>
+        {allFinished ? (
+          // Botón cuando terminaron todas las categorías
+          <div className="space-y-4">
+            <div className="bg-yellow-400/90 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <p className="text-2xl font-black text-gray-900 mb-2">
+                🎉 ¡FELICIDADES! 🎉
+              </p>
+              <p className="text-lg font-semibold text-gray-800">
+                ¡Completaste todas las categorías!
+              </p>
+            </div>
+            
+            <button
+              onClick={handleFinishAll}
+              className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold text-xl py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+            >
+              Volver al Inicio 🏠
+            </button>
+          </div>
+        ) : (
+          // Botones normales
+          <div className="flex gap-4">
+            <button
+              onClick={handlePlayAgain}
+              className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-lg py-4 rounded-2xl hover:scale-105 transition-transform"
+            >
+              <div className="flex flex-col items-center">
+                <span>Siguiente categoría 🔁</span>
+                {nextCategory && (
+                  <span className="text-sm font-normal opacity-90 mt-1">
+                    {nextCategory}
+                  </span>
+                )}
+              </div>
+            </button>
 
-          <button
-            onClick={handleGoHome}
-            className="flex-1 bg-white text-gray-800 font-bold text-lg py-4 rounded-2xl hover:scale-105 transition-transform"
-          >
-            Inicio
-          </button>
-        </div>
+            <button
+              onClick={handleGoHome}
+              className="flex-1 bg-white text-gray-800 font-bold text-lg py-4 rounded-2xl hover:scale-105 transition-transform"
+            >
+              Inicio
+            </button>
+          </div>
+        )}
 
       </div>
     </div>

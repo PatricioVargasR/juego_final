@@ -35,7 +35,7 @@ export function useGameEngine() {
     try {
       setIsLoading(true)
       setError(null)
-      setGameFinished(false) // ← IMPORTANTE: Resetear estado de juego terminado
+      setGameFinished(false)
 
       // Load settings
       const savedSettings = localStorage.getItem("gameSettings")
@@ -43,25 +43,23 @@ export function useGameEngine() {
         ? JSON.parse(savedSettings)
         : { category: "Salud Mental", numQuestions: 10, soundEnabled: true }
 
-      console.log("🎮 Inicializando juego con configuración:", settings)
+      console.log("🎮 Inicializando juego:", settings.category)
 
       // Check if there's a saved game state for THIS CATEGORY
       const savedState = localStorage.getItem("gameState")
       if (savedState) {
         const state = JSON.parse(savedState)
-        
-        // Verificar si el estado guardado es de la misma categoría
         const savedCategory = state.category || ""
         
         if (savedCategory === settings.category) {
-          console.log("📦 Cargando estado guardado de la misma categoría")
+          console.log("📦 Restaurando progreso guardado")
           setQuestions(state.questions)
           setCurrentIndex(state.currentIndex)
           setScore(state.score)
           setIsLoading(false)
           return
         } else {
-          console.log("🔄 Categoría diferente, limpiando estado anterior")
+          console.log("🔄 Nueva categoría, limpiando estado anterior")
           localStorage.removeItem("gameState")
         }
       }
@@ -119,7 +117,7 @@ export function useGameEngine() {
           questions,
           currentIndex: newIndex,
           score: newScore,
-          category: settings.category, // ← Guardar categoría actual
+          category: settings.category,
         }),
       )
     } else {

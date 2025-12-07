@@ -23,6 +23,11 @@ export default function ConfigPage() {
       setSelectedCategory(settings.category || "Salud Mental")
       setSoundEnabled(settings.soundEnabled ?? true)
     }
+    
+    // IMPORTANTE: Siempre limpiar el estado del juego cuando entras a config
+    console.log("🧹 Limpiando estado del juego en config")
+    localStorage.removeItem("gameState")
+    localStorage.removeItem("finalScore")
   }, [])
 
   const handleSave = () => {
@@ -31,7 +36,13 @@ export default function ConfigPage() {
       category: selectedCategory,
       soundEnabled,
     }
+    console.log("💾 Guardando configuración:", settings)
     localStorage.setItem("gameSettings", JSON.stringify(settings))
+    
+    // Limpiar antes de iniciar
+    localStorage.removeItem("gameState")
+    localStorage.removeItem("finalScore")
+    
     router.push("/game")
   }
 

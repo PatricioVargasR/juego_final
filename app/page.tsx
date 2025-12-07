@@ -63,7 +63,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="absolute bottom-4 text-sm text-white font-medium">
-        © 2025 LOS HALCONCITOS. All rights reserved.
+        © 2025 LOS TRAUMADITOS. All rights reserved.
       </footer>
     </div>
   );
