@@ -24,7 +24,7 @@ export default function HomePage() {
  <h1 className="text-5xl md:text-6xl font-black text-center text-white drop-shadow-2xl px-4 py-2" style={{
           textShadow: '0 0 20px rgba(253, 224, 71, 0.8), 0 0 40px rgba(253, 224, 71, 0.5)'
         }}>
-          LOS TRAUMADITOS
+          100 halcones dijeron
         </h1>
 
         {/* Decorative Sparkles */}
@@ -63,7 +63,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="absolute bottom-4 text-sm text-white font-medium">
-        © 2025 LOS TRAUMADITOS. All rights reserved.
+        © 2025 100 halcones dijeron. All rights reserved.
       </footer>
     </div>
   );
